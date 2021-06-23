@@ -1,0 +1,85 @@
+body
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('background2.jpg');
+}
+
+li,a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color : #3F250B;
+    text-decoration: none;
+}
+
+p.logo{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color : #3F250B;
+    text-decoration: none;
+}
+
+header {
+    display : flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10%;
+    /* background-color: rgba(245, 222, 179,0.85); */
+}
+
+.list {
+    list-style: None;
+}
+
+.list li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.list li a , .logo {
+    transition: all 0.3s ease 0s;
+}
+
+.list li a:hover{
+   color: rgb(167, 102, 17);
+}
+
+.sign-form
+{
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+    width: 300px;
+    padding: 20px;
+    background: rgb(245, 235, 215);
+    margin: 5% auto 0;
+    text-align: center;
+}
+
+.username , .password , .contactno
+{
+    border-radius: 30px;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: medium;
+}
+
+
+.submit-btn
+{
+    border-radius: 20px;
+    width: 40%;
+    padding: 6px;
+    background: rgb(238, 181, 108);
+    text-shadow: black;
+    font-size: medium;
+}
+
+.submit-btn:hover
+{
+    cursor: pointer;
+}
