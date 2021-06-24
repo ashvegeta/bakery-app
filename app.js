@@ -19,8 +19,12 @@ app.get('/contact',(req,res)=>{
     res.send('contacts')
 })
 
+app.get('/about',(req,res)=>{
+    res.sendFile(__dirname+'/public/about.html')
+})
+
 app.get('/sign',(req,res)=>{
-    res.sendFile(__dirname + '/public/user-signup.html')
+    res.sendFile(__dirname + '/public/user-signin.html')
 })
 
 app.post('/signup',(req,res)=>{

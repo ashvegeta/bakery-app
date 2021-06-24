@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Login </title>
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="favicon_io/site.webmanifest">
+        <link rel="stylesheet" href= "front-end.css">   
+        <style>
+            *, *:before, *:after {
+  box-sizing: inherit;
+}
+            .column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+  background-color: #ffecd0;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: rgb(34, 29, 110);
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.cinfo{
+  color: rgb(71, 13, 13)
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+        </style>    
+    </head>
+    <body>
+        <header>
+            <p class="logo">Bakery</p>
+        <nav>
+            <ul class="list">
+                <li><a href = "front-end.html">Home</a></li>
+                <li><a href = "about">About</a></li>
+                <li><a href = "contact">Contact Us</a></li>
+                <li><a href = "sign">Sign in/Sign up</a></li>
+            </ul>
+        </nav>
+        </header>
+        
+        <div class="about-section">
+            <h1>About Us</h1>
+            <p>Leaders in exquisite Fresh baked goods</p>
+            <p>Our bakery is the largest network in providing freshly baked 5 star pasteries for delivery across the country</p>
+            <p>The Ordering procedure is fairly simple and user friendly.</p>
+          </div>
+          
+          <h2 style="text-align:center">Our Team</h2>
+          <div class="row">
+            <div class="column">
+              <div class="card">
+                <img src="default_profile.jpg" alt="Ashik" style="width:100%">
+                <div class="container">
+                  <h2>Ashik M P</h2>
+                  <p class="title">Designer and Developer</p>
+                  <p><b>USN: 1MS18CS030</b></p>
+                  <h4 class="cinfo">Contact info:</h4>
+                  <p>e-mail: ashik2001mp@gmail.com</p>
+                  <p>Phone No: 9164177130</p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="column">
+              <div class="card">
+                <img src="default_profile.jpg" alt="Arun" style="width:100%;">
+                <div class="container">
+                  <h2>Arun J K</h2>
+                  <p class="title">Designer and Developer</p>
+                  <p><b>USN: 1MS18CS029</b></p>
+                  <h4 class="cinfo">Contact info:</h4>
+                  <p>e-mail: arunkennedy78@gmail.com</p>  
+                  <p>Phone No: 7019634663</p>     
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+</html>
