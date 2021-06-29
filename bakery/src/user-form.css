@@ -84,8 +84,9 @@ header {
     cursor: pointer;
 }
 
-textarea.alert
+.alert
 {
+    color: rgba(255,0,0,0.3);
     text-align: center;
     margin : 0%;
     font-size: 20px;

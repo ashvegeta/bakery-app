@@ -1,11 +1,19 @@
-body
-{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 3px;
+  margin: 0;
+}
+
+body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
     background-size: cover;
     background-position: center;
     background-image: url('background2.jpg');
+    margin-bottom: 20%;
 }
 
 li,a{
@@ -25,10 +33,11 @@ p.logo{
 }
 
 header {
+    padding: 0;
     display : flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10%;
+    padding: 25px 10%;
     /* background-color: rgba(245, 222, 179,0.85); */
 }
 
@@ -52,7 +61,7 @@ header {
 .sign-form
 {
     box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
-    width: 300px;
+    width: 350px;
     padding: 20px;
     background: rgb(245, 235, 215);
     margin: 5% auto 0;
@@ -62,9 +71,10 @@ header {
 .username , .password , .contactno
 {
     border-radius: 30px;
-    width: 80%;
+    width: 85%;
     padding: 10px;
     margin: 10px 0;
+    margin-top: 5%;
     font-size: medium;
 }
 
@@ -77,6 +87,7 @@ header {
     background: rgb(238, 181, 108);
     text-shadow: black;
     font-size: medium;
+    margin-bottom: 5%;
 }
 
 .submit-btn:hover
@@ -84,12 +95,15 @@ header {
     cursor: pointer;
 }
 
-textarea.alert
+.alert
 {
+    border-radius: 5px;
+    background-color: rgba(255,0,0,0.4);
+    background-position: center;
     text-align: center;
-    margin : 0%;
-    font-size: 20px;
-    box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
-    height: 0px;
-    display: none;
-}
+    display: None;
+    /* margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2%;
+    width: 70%;*/
+} 

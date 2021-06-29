@@ -28,21 +28,5 @@ const UserSchema = new mongoose.Schema({
 
 const UserModel = new mongoose.model("UserModel",UserSchema)
 
-// //connect to mongo database
-// mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true });
-
-// const connection = mongoose.connection;
-
-// connection.once("open", function() {
-//   console.log("MongoDB database connection established successfully");
-// });
-
-
-
-// //connect to mongo database
-// const conn = mongoose.connect("mongodb://localhost:27017/userinfo" , {useNewUrlParser: true, useUnifiedTopology: true})
-// .then(()=> {console.log("database connection successful...")})
-// .catch((err)=>{console.log(err)})
-
 
 module.exports = {UserModel}
