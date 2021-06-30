@@ -1,6 +1,6 @@
 import React , {Component} from "react"
-import {Redirect,Link} from "react-router-dom"
 import Signin from "./Signin"
+import AdminNavbar from "./AdminNavbar"
 
 export default class AdminHome extends Component {
     constructor(props)
@@ -18,6 +18,7 @@ export default class AdminHome extends Component {
         }
 
         this.state = {
+            username: this.props.username,
             loggedIn
         }
     }
@@ -43,27 +44,16 @@ export default class AdminHome extends Component {
 
 
     render(){
-        console.log(this.state.loggedIn)
-
         if(this.state.loggedIn === false)
         {
             return <Signin/>
         }
 
         return(
-            <header>
-            <p className="logo">Bakery</p>
-        <nav>
-            <ul className="list">
-                <li><Link to = "/">Home</Link></li>
-                <li><Link to = "/about">About</Link></li>
-                <li><Link to = "/contact">Contact Us</Link></li>
-                <li>User</li>
-                <li><Link to = "/logout">Logout</Link></li>
-            </ul>
-        </nav>
-        </header>
+           <AdminNavbar username={this.state.username}/>
         )
     }
 
+
 }
+

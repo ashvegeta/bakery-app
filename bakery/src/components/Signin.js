@@ -60,6 +60,7 @@ export default class Signin extends Component {
            {
                //to get current user from local storage
                localStorage.setItem("token","adnqowdibqosfbo")
+               localStorage.setItem("username",this.state.username)
 
                this.setState({
                    loggedIn: true

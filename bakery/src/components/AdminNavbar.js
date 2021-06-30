@@ -12,9 +12,11 @@ export default class AdminNavbar extends Component {
         super(props)
 
         this.state = {
-            sidebar: false
-
+            sidebar: false,
+            username: localStorage.getItem("username")
         }
+
+        console.log("this state user: ",this.state.username)
 
         this.showSidebar = this.showSidebar.bind(this)
     }
@@ -27,11 +29,10 @@ export default class AdminNavbar extends Component {
     }
 
     render() {
+        console.log(this.props.username)
         return (
-           
             <div>
-                 <IconContext.Provider value={{fill : 'red'}}>
-                {/* <p style={{margin: "10px"}} className="logo">Bakery</p> */}
+                 <IconContext.Provider value={{size:"20px"}}>
                 <p style={{marginTop:"12px",marginLeft:"20px", fontSize:"35px",width:"90%",display:"inline-block"}}>Bakery</p>
 
                 <div className="navbar">
@@ -54,7 +55,7 @@ export default class AdminNavbar extends Component {
                                 <li key={index} className={item.cName}>
                                     <Link to={item.path}>
                                         {item.icon}
-                                        <span>{item.title}</span>
+                                        {item.title!='User'? (<span>{item.title}</span>) : (<span>{this.state.username}</span>)}
                                     </Link>
                                 </li>
                             )    
