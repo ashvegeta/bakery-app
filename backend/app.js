@@ -38,18 +38,20 @@ app.post('/signup',(req,res)=>{
 
     const user = async() => {
         try{
-            const newuser = new UserModel({
-            name :  userdetails["username"],
-            password : userdetails["password"],
-            contactno : userdetails["contactno"]
-            })
-
-
             const exist1 = await UserModel.find({name: userdetails["username"]}).countDocuments()
             const exist2 = await UserModel.find({contactno : userdetails["contactno"]}).countDocuments()
 
             if(exist1==0 && exist2==0)
             {
+                const newuser = new UserModel({
+                    name :  userdetails["username"],
+                    password : userdetails["password"],
+                    contactno : userdetails["contactno"],
+                    cart : [
+        
+                    ]
+                })
+
                 await newuser.save()
                 res.status(200).send(true)
             }
@@ -89,7 +91,93 @@ user()
     
 })
 
-//listening at port 7000
+app.post('/cart',(req,res)=>{
+    const user = req.body;
+
+        const execute = async() => {
+        const result = await UserModel.findOne({name: user["username"]})
+
+        if(result)
+        {
+            res.send(result.cart)
+        }
+        else
+        {
+            res.status(404).send("404 not found")
+        }
+    }
+
+    execute()
+})
+
+app.post('/addtocart',(req,res)=>{
+    const {product} = req.body;
+
+    const add = async() => {
+
+        let user = await UserModel.findOne({name: req.body["name"]})
+        let exists = await UserModel.findOne({cart : {$elemMatch : {product_id : product["product_id"]}}})
+
+        if(exists)
+        {
+            res.status(409).send("product already exists")
+        }
+        
+        else
+        {
+            await user["cart"].push(
+            {
+                product_id : product["product_id"],
+                product_name : product["product_name"] ,
+                price : product["price"],
+                quantity : product["quantity"]
+            })
+
+            await user.save()
+            res.status(200).send(user.cart)
+        }
+    }
+
+    add()
+
+    
+})
+
+app.post('/deletefromcart',(req,res)=>{
+    const {product} = req.body;
+
+    const remove = async() => {
+
+        await UserModel.updateOne({name: req.body["name"]},{"$pull":{"cart" : {"product_id" : product["product_id"]}}})
+
+        const user = await UserModel.findOne({name: req.body["name"]})
+
+        res.send(user.cart)
+        
+    }
+
+    remove()
+
+    
+})
+
+app.post('/updatecart',(req,res)=>{
+    const {product} = req.body;
+
+    const update = async() => {
+
+        await UserModel.updateOne({name: req.body["name"],"cart.product_id": product["product_id"]},{"$set" : {"cart.$.quantity" : product["quantity"]}})
+
+        const user = await UserModel.findOne({name: req.body["name"]})
+
+        res.send(user.cart)
+        
+    }
+
+    update()
+})
+
+//listening at port 5000
 app.listen(port,()=>{
     console.log(`server running at port ${port}...`)
 })

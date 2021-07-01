@@ -1,7 +1,6 @@
 import React , {Component} from "react"
 import Signin from "./Signin"
 import AdminNavbar from "./AdminNavbar"
-
 export default class AdminHome extends Component {
     constructor(props)
     {

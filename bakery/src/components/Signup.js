@@ -3,6 +3,7 @@ import favicon from "../favicon-32x32.png"
 import {Link,Redirect} from "react-router-dom"
 import Navbar from "./Navbar" 
 import axios from "axios"
+import AdminHome from "./AdminHome"
 
 export default class Signup extends Component {
     constructor(props){
@@ -74,6 +75,11 @@ export default class Signup extends Component {
     }
 
     render(){
+        if(localStorage.getItem("token"))
+        {
+            return <AdminHome/>
+        }
+
         if(this.state.userAdded)
         {
             return <Redirect to="/signin"/>

@@ -1,10 +1,11 @@
 import React, { Component } from "react"
-import {Route,Switch,Redirect} from "react-router-dom"
+import {Route,Switch} from "react-router-dom"
 import Navbar from "./components/Navbar" 
 import Signup from "./components/Signup"
 import Signin from "./components/Signin"
 import Logout from "./components/Logout"
 import AdminHome from "./components/AdminHome"
+import Cart from "./components/Cart"
 
 export default class App extends Component{
   constructor(props){
@@ -54,12 +55,14 @@ export default class App extends Component{
     return (
       <div className="App">
         <Switch> 
-        <Route path="/sign" exact component={Signup}/>
-        <Route path="/signin" exact component={Signin}/> 
-        { this.state.loggedIn && <Route path="/" exact component={AdminHome}/>}
-        {this.state.loggedIn && <Route path="/admin" component={AdminHome}/>}
+        {console.log(localStorage.getItem("token"))}
+        {localStorage.getItem("token") && <Route path="/" exact component={AdminHome}/>}
+        <Route path="/admin" component={AdminHome}/>
         <Route path="/logout" exact component={Logout}/>
-        {!this.state.loggedIn && <Route path="/" exact component={Navbar}/>}  
+        {!localStorage.getItem("token") && <Route path="/" exact component={Navbar}/>}
+        <Route path="/cart" exact component={Cart}/>
+        <Route path="/sign" exact component={Signup}/>
+        <Route path="/signin" exact component={Signin}/>
         </Switch>
       </div>
     );

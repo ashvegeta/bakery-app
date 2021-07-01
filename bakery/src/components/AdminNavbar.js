@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { SidebarData } from './SidebarData'
 import { IconContext } from 'react-icons'
 import '../Navbar.css'
+import AdminHome from './AdminHome'
 
 export default class AdminNavbar extends Component {
     constructor(props)
@@ -29,11 +30,10 @@ export default class AdminNavbar extends Component {
     }
 
     render() {
-        console.log(this.props.username)
         return (
             <div>
                  <IconContext.Provider value={{size:"20px"}}>
-                <p style={{marginTop:"12px",marginLeft:"20px", fontSize:"35px",width:"90%",display:"inline-block"}}>Bakery</p>
+                <p style={{marginTop:"12px",marginLeft:"20px", fontSize:"35px",width:"89%",display:"inline-block"}}>Bakery</p>
 
                 <div className="navbar">
                
@@ -53,9 +53,9 @@ export default class AdminNavbar extends Component {
                         {SidebarData.map((item,index) => {
                             return(
                                 <li key={index} className={item.cName}>
-                                    <Link to={item.path}>
+                                    <Link to={item.path==="/" ? ("/admin") : (item.path)}>
                                         {item.icon}
-                                        {item.title!='User'? (<span>{item.title}</span>) : (<span>{this.state.username}</span>)}
+                                        {item.title!=='User'? (<span>{item.title}</span>) : (<span>{this.state.username}</span>)}
                                     </Link>
                                 </li>
                             )    
