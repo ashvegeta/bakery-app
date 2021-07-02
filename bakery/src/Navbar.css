@@ -72,3 +72,21 @@
     margin-left: 16px;
   }
 
+  .adminlogo{
+    margin-top:12px;
+    margin-left:20px;
+    font-size:35px;
+    width:89%;
+    display:inline-block
+  }
+
+
+  @media all and (max-width: 800px){
+    .adminlogo{
+      width: 80%;
+    }
+  }
+
+li{
+  margin-bottom: 10px;
+}

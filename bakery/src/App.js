@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {Route,Switch} from "react-router-dom"
-import Navbar from "./components/Navbar" 
+import Home from "./components/Home" 
 import Signup from "./components/Signup"
 import Signin from "./components/Signin"
 import Logout from "./components/Logout"
@@ -26,30 +26,6 @@ export default class App extends Component{
     }
   }
 
-  // getupdated()
-  // {
-  //   //get current user token
-  //   const token = localStorage.getItem("token")
-
-  //   let logged = true
-
-  //   if(token == null)
-  //   {
-  //       logged = false
-  //   }
-
-
-  //   if(this.state.loggedIn!=logged)
-  //   {
-
-  //       this.setState({
-  //         loggedIn: logged
-  //       })
-  //   }
-
-  // }
-
-
   render(){
 
     return (
@@ -59,7 +35,7 @@ export default class App extends Component{
         {localStorage.getItem("token") && <Route path="/" exact component={AdminHome}/>}
         <Route path="/admin" component={AdminHome}/>
         <Route path="/logout" exact component={Logout}/>
-        {!localStorage.getItem("token") && <Route path="/" exact component={Navbar}/>}
+        {!localStorage.getItem("token") && <Route path="/" exact component={Home}/>}
         <Route path="/cart" exact component={Cart}/>
         <Route path="/sign" exact component={Signup}/>
         <Route path="/signin" exact component={Signin}/>

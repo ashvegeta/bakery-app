@@ -33,7 +33,7 @@ export default class AdminNavbar extends Component {
         return (
             <div>
                  <IconContext.Provider value={{size:"20px"}}>
-                <p style={{marginTop:"12px",marginLeft:"20px", fontSize:"35px",width:"89%",display:"inline-block"}}>Bakery</p>
+                <p className="adminlogo">Bakery</p>
 
                 <div className="navbar">
                

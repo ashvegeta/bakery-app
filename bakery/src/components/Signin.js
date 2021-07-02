@@ -1,7 +1,7 @@
 import axios from "axios";
 import React , {Component} from "react"
 import favicon from "../favicon-32x32.png"
-import Navbar from "./Navbar" 
+import Navbar from "./Navbar";
 import AdminHome from "./AdminHome"
 
 export default class Signin extends Component {

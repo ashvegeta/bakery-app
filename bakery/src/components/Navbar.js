@@ -1,15 +1,11 @@
-import React , {Component} from "react"
-import {Link} from "react-router-dom"
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Navbar extends Component {
-    componentDidMount(){
-        document.title = "Bakery"
-    }
-
-    render(){
-        return(
+    render() {
+        return (
         <header>
-            <p className="logo">Bakery</p>
+        <p className="logo">Bakery</p>
         <nav>
             <ul className="list">
                 <li><Link to = "/">Home</Link></li>

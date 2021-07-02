@@ -1,6 +1,8 @@
 import React , {Component} from "react"
 import Signin from "./Signin"
 import AdminNavbar from "./AdminNavbar"
+import DisplayProducts from "./DisplayProducts"
+
 export default class AdminHome extends Component {
     constructor(props)
     {
@@ -49,8 +51,11 @@ export default class AdminHome extends Component {
         }
 
         return(
+            <div>
            <AdminNavbar username={this.state.username}/>
-        )
+            <DisplayProducts/>
+            </div>
+           )
     }
 
 

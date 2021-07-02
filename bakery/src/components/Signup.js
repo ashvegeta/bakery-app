@@ -1,7 +1,7 @@
 import React , {Component} from "react"
 import favicon from "../favicon-32x32.png"
 import {Link,Redirect} from "react-router-dom"
-import Navbar from "./Navbar" 
+import Navbar from "./Navbar"
 import axios from "axios"
 import AdminHome from "./AdminHome"
 
