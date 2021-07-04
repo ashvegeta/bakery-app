@@ -1,22 +1,19 @@
 const mongoose = require("mongoose")
+require("dotenv").config()
 
-var url = "mongodb://localhost:27017/userinfo";
+var url = process.env.SERVER_URL;
 
 const connectDB = async () => {
-    try 
-    {
-        await mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true })
-        console.log(`Connected to database`)
-    }
-
-    catch (error)
-    {
-        console.error(`Connection error`)
-    }
+   await mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true,useFindAndModify: false })
+   .then(()=> {
+       console.log('connected to database')
+   })
+   .catch((err) => {
+       console.log('error connecting to database:\n'+err)
+   })
 }
 
-connectDB();
-
+connectDB()
 
 //define schema
 const UserSchema = new mongoose.Schema(
@@ -42,8 +39,19 @@ const UserSchema = new mongoose.Schema(
     }
 )
 
+const NewOrderSchema= new mongoose.Schema({
+    username: String,
+    phoneNo: String,
+    status: String,
+    totalAmt: Number,
+    items: [{
+      name: String,
+      qty: Number,
+      price: Number
+    }]
+  });
 
 const UserModel = new mongoose.model("UserModel",UserSchema)
+const NewOrder=  new mongoose.model('new_order',NewOrderSchema);
 
-
-module.exports = {UserModel}
+module.exports = {UserModel,NewOrder}

@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require("mongoose")
-const {UserModel} = require('./server')
+const {UserModel, NewOrder} = require('./server')
 
 const app = express()
 const port  = process.env.PORT || 5000
@@ -116,7 +116,7 @@ app.post('/addtocart',(req,res)=>{
     const add = async() => {
 
         let user = await UserModel.findOne({name: req.body["name"]})
-        let exists = await UserModel.findOne({cart : {$elemMatch : {product_id : product["product_id"]}}})
+        let exists = await UserModel.findOne({name: req.body["name"] , cart : {$elemMatch : {product_id : product["product_id"]}}})
 
         if(exists)
         {
@@ -175,6 +175,34 @@ app.post('/updatecart',(req,res)=>{
     }
 
     update()
+})
+
+app.post('/placeorder',(req,res)=>{
+    const userinfo = req.body["userinfo"];
+    const products = req.body["products"];
+
+    const order = async() => {
+        const neworder = new NewOrder({
+            username :  userinfo["username"],
+            phoneNo : userinfo["contactno"],
+            status : userinfo["status"],
+            totalAmt : userinfo["totalamt"],
+            items: products
+        })
+
+        await neworder.save()
+
+        res.status(200).send(true)
+
+        
+    }
+
+    const clearCart = async() => {
+        await UserModel.updateOne({name:userinfo["username"]},{"$set" : { "cart" : []}})
+    }
+
+    order()
+    clearCart()
 })
 
 //listening at port 5000

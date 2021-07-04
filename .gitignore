@@ -3,3 +3,5 @@
 /public
 
 /bakery/node_modules
+
+.env

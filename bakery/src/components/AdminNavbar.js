@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { SidebarData } from './SidebarData'
 import { IconContext } from 'react-icons'
 import '../Navbar.css'
-import AdminHome from './AdminHome'
 
 export default class AdminNavbar extends Component {
     constructor(props)

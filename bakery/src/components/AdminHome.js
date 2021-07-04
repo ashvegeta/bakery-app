@@ -60,4 +60,3 @@ export default class AdminHome extends Component {
 
 
 }
-

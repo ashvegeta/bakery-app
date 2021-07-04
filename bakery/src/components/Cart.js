@@ -20,7 +20,8 @@ export default class Cart extends Component {
         this.deleteItems = this.deleteItems.bind(this)
         this.updateItems = this.updateItems.bind(this)
         this.getCartTotal = this.getCartTotal.bind(this)
-
+        this.placeOrder = this.placeOrder.bind(this)
+        this.getProducts = this.getProducts.bind(this)
     }
 
     componentDidMount()
@@ -92,6 +93,58 @@ export default class Cart extends Component {
         return total
     }
 
+    getProducts()
+    {
+        var products  = []
+
+        for(var i=0; i<this.state.cart.length ;i++)
+        {
+            products[i] = {
+                            "name" : this.state.cart[i]["product_name"],
+                            "quantity" : this.state.cart[i]["quantity"],
+                            "price" : this.state.cart[i]["price"]
+                        }
+        }
+
+        return products
+    }
+
+    placeOrder()
+    {
+        var products = this.getProducts()
+
+        if(products.length===0)
+        {
+            return alert("Cart Empty!!")
+        }
+
+        var request = {
+            "userinfo" : {
+                "username" : localStorage.getItem("username"),
+                "contactno" : 9164177130,
+                "status" : "ordered",
+                "totalamt" : this.getCartTotal()
+            },
+            "products" : products
+        }
+
+        axios.post("http://localhost:5000/placeorder",request)
+            .then(
+                () => {
+                    this.setState({
+                        cart : [
+
+                        ]
+                    },console.log(this.state.cart)) 
+                }
+            )
+            .catch(err=>{
+                console.log("error updating data:\n"+err)
+            })
+
+        alert("Order Placed")
+    }
+
     render() {
         if(!localStorage.getItem("token"))
         {
@@ -148,10 +201,10 @@ export default class Cart extends Component {
                         </ul>
                         <br/><br/><hr/><br/>
                         <span className="left">Total</span>
-                        <span className="right">{this.getCartTotal()}&ensp;₹</span>
+                        <span className="right">{this.getCartTotal()}&ensp;₹</span><br/><br/>
+                        <button className="placeorder" onClick={this.placeOrder}>Place Order</button>
                 </div>
             </div>
         )
     }
 }
-
