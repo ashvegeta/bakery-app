@@ -32,7 +32,7 @@ export default class Cart extends Component {
             res => {
                 this.setState({
                     cart : res.data
-                },console.log(this.state.cart)) 
+                }) 
             }
         )
         .catch(err=>{
@@ -51,7 +51,7 @@ export default class Cart extends Component {
             res => {
                 this.setState({
                     cart : res.data
-                },console.log(this.state.cart)) 
+                }) 
             }
         )
         .catch(err=>{
@@ -135,7 +135,7 @@ export default class Cart extends Component {
                         cart : [
 
                         ]
-                    },console.log(this.state.cart)) 
+                    }) 
                 }
             )
             .catch(err=>{
@@ -163,7 +163,7 @@ export default class Cart extends Component {
                             this.state.cart.map((item) => {
                                 return(
                                         <li key={item.product_id} className="product">
-                                            <img className="productimage" src={products[item.product_id].src}/>
+                                            <img className="productimage" src={products[item.product_id].src} alt="product"/>
                                             <div className="product-info">
                                                 item : {item.product_name}
                                                  <br/><br/>

@@ -18,9 +18,9 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'About',
-    path: '/about',
-    icon: <AiIcons.AiFillInfoCircle/>,
+    title: 'Cart',
+    path: '/cart',
+    icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
   {
@@ -29,13 +29,6 @@ export const SidebarData = [
     icon: <AiIcons.AiFillContacts/>,
     cName: 'nav-text'
   },
-  {
-    title: 'Cart',
-    path: '/cart',
-    icon: <FaIcons.FaCartPlus />,
-    cName: 'nav-text'
-  },
-
   {
     title: 'Logout',
     path: '/logout',

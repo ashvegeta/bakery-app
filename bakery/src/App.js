@@ -6,6 +6,7 @@ import Signin from "./components/Signin"
 import Logout from "./components/Logout"
 import AdminHome from "./components/AdminHome"
 import Cart from "./components/Cart"
+import Contacts from "./components/Contacts"
 
 export default class App extends Component{
   constructor(props){
@@ -39,6 +40,7 @@ export default class App extends Component{
         <Route path="/cart" exact component={Cart}/>
         <Route path="/sign" exact component={Signup}/>
         <Route path="/signin" exact component={Signin}/>
+        <Route path="/contact" exact component={Contacts}/>
         </Switch>
       </div>
     );

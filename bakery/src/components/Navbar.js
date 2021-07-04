@@ -9,7 +9,6 @@ export default class Navbar extends Component {
         <nav>
             <ul className="list">
                 <li><Link to = "/">Home</Link></li>
-                <li><Link to = "about">About</Link></li>
                 <li><Link to = "contact">Contact Us</Link></li>
                 <li><Link to = "/sign">Sign in/Sign up</Link></li>
             </ul>
