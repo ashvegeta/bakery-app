@@ -20,17 +20,6 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 //routing
-app.get('/',(req,res)=>{
-    res.sendFile(__dirname + '/public/front-end.html')
-})
-
-app.get('/contact',(req,res)=>{
-    res.send('contacts')
-})
-
-app.get('/sign',(req,res)=>{
-    res.sendFile(__dirname + '/public/user-signup.html')
-})
 
 app.post('/signup',(req,res)=>{
     //res.json(req.body)   //body is json-ised
