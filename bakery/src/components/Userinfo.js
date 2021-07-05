@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import AdminNavbar from './AdminNavbar'
 
 export default class Userinfo extends Component {
     constructor(props)
@@ -46,11 +47,14 @@ export default class Userinfo extends Component {
         }
 
         return (
+            <div>
+                <AdminNavbar/>
             <div className="userinfo">
                 <h3>User Info</h3>
                 <span>Name : {this.state.username}</span>
                 <span>Password : {this.state.password}</span>
                 <span>Contact no : {this.state.contactno} </span>
+            </div>
             </div>
         )
     }
