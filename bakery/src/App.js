@@ -7,6 +7,7 @@ import Logout from "./components/Logout"
 import AdminHome from "./components/AdminHome"
 import Cart from "./components/Cart"
 import Contacts from "./components/Contacts"
+import Userinfo from "./components/Userinfo"
 
 export default class App extends Component{
   constructor(props){
@@ -41,6 +42,7 @@ export default class App extends Component{
         <Route path="/sign" exact component={Signup}/>
         <Route path="/signin" exact component={Signin}/>
         <Route path="/contact" exact component={Contacts}/>
+        <Route path="/userinfo" exact component={Userinfo}/>
         </Switch>
       </div>
     );

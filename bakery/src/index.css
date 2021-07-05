@@ -308,6 +308,26 @@ min-width: 300px;
     line-height: 44px;
 }
 
+.userinfo{
+    background-color: rgba(243, 185, 99, 0.966);
+    height: 260px;
+    width:330px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.userinfo h3{
+    line-height: 50px;
+    margin-left: 110px;
+}
+ .userinfo span{
+    margin-top: 24px;
+    line-height: 30px;
+}
+
 @media only screen and (max-width: 900px){
     .cartinfo{
         display: none;

@@ -80,6 +80,31 @@ user()
     
 })
 
+app.post('/getuserinfo',(req,res) => {
+    const userdetails = req.body;
+
+    const user = async() => {
+        const result = await UserModel.findOne({name: userdetails["username"]})
+        
+        if(result==null)
+        {
+            res.status(404).send(null)
+        }
+        else
+        {
+            const response = {
+                "username" : result["name"],
+                "password" : result["password"],
+                "contactno" : result["contactno"],
+            }
+
+            res.status(200).send(response)
+        }
+    }
+
+user()
+})
+
 app.post('/cart',(req,res)=>{
     const user = req.body;
 
