@@ -11,4 +11,6 @@ Steps to run :
 6. type npm start within the bakery repo to start the react front-end server.
 7. open the browser and type localhost:3000/ 
 
+<hr>
+
 app -> https://bakeryapp123.herokuapp.com/
