@@ -10,3 +10,5 @@ Steps to run :
 5. run the mongo DB server by typing "npm start" with bakery-app as pwd to start backend server at localhost:5000/.
 6. type npm start within the bakery repo to start the react front-end server.
 7. open the browser and type localhost:3000/ 
+
+app -> https://bakeryapp123.herokuapp.com/
